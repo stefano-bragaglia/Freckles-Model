@@ -67,12 +67,19 @@ public class ModelImpl implements Model {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see it.bragaglia.freckles.Model#getSession()
+	 * @see
+	 * it.bragaglia.freckles.model.Model#getSession(it.bragaglia.freckles.model
+	 * .Type)
 	 */
 	@Override
-	public Session getSession() {
-		// TODO
-		return null;
+	public Session getSession(Type type) {
+		if (type == null)
+			throw new IllegalArgumentException(
+					"Illegal 'type' argument in ModelImpl.getSession(Type): "
+							+ type);
+		Session result = type.createSession(statements);
+		assert invariant() : "Illegal state in ModelImpl.getSession(Type)";
+		return result;
 	}
 
 	/**

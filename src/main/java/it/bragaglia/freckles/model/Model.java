@@ -19,11 +19,13 @@ public interface Model {
 	public abstract void clear();
 
 	/**
-	 * Returns a session to handle the model.
+	 * Returns a session of the given type to handle the model.
 	 * 
+	 * @param type
+	 *            the desired session type to return
 	 * @return a session
 	 */
-	public Session getSession();
+	public Session getSession(Type type);
 
 	/**
 	 * Removes the contexts for the fluents from the given event.
