@@ -1,10 +1,11 @@
 /**
  * 
  */
-package it.bragaglia.freckles.model.conditions;
+package it.bragaglia.freckles.model.conditions.relations;
 
 import it.bragaglia.freckles.model.ConditionDescr;
 import it.bragaglia.freckles.model.ExpressionDescr;
+import it.bragaglia.freckles.model.conditions.RelationDescr;
 
 /**
  * @author stefano

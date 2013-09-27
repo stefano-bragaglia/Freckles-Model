@@ -1,24 +1,26 @@
 /**
  * 
  */
-package it.bragaglia.freckles.session.expressions;
+package it.bragaglia.freckles.session.expressions.operations;
 
 import it.bragaglia.freckles.model.Value;
 import it.bragaglia.freckles.session.Expression;
+import it.bragaglia.freckles.session.expressions.Operation;
+import it.bragaglia.freckles.session.expressions.OperationImpl;
 
 /**
  * @author stefano
  * 
  */
-public class Modulus extends OperationImpl implements Operation {
+public class Plus extends OperationImpl implements Operation {
 
 	/**
 	 * @param expr1
 	 * @param expr2
 	 */
-	public Modulus(Expression expr1, Expression expr2) {
+	public Plus(Expression expr1, Expression expr2) {
 		super(expr1, expr2);
-		assert invariant() : "Illegal state in Modulus(Expression, Expression)";
+		assert invariant() : "Illegal state in Plus(Expression, Expression)";
 	}
 
 	/*
@@ -30,8 +32,8 @@ public class Modulus extends OperationImpl implements Operation {
 	 */
 	@Override
 	public Value evaluate(Value val1, Value val2) {
-		Value result = val1.module(val2);
-		assert invariant() : "Illegal state in Modulus.evaluate(Expression, Expression)";
+		Value result = val1.add(val2);
+		assert invariant() : "Illegal state in Plus.evaluate(Expression, Expression)";
 		return result;
 	}
 

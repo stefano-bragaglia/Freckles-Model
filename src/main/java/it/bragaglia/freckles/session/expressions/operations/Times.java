@@ -1,24 +1,26 @@
 /**
  * 
  */
-package it.bragaglia.freckles.session.expressions;
+package it.bragaglia.freckles.session.expressions.operations;
 
 import it.bragaglia.freckles.model.Value;
 import it.bragaglia.freckles.session.Expression;
+import it.bragaglia.freckles.session.expressions.Operation;
+import it.bragaglia.freckles.session.expressions.OperationImpl;
 
 /**
  * @author stefano
  * 
  */
-public class Obelus extends OperationImpl implements Operation {
+public class Times extends OperationImpl implements Operation {
 
 	/**
 	 * @param expr1
 	 * @param expr2
 	 */
-	public Obelus(Expression expr1, Expression expr2) {
+	public Times(Expression expr1, Expression expr2) {
 		super(expr1, expr2);
-		assert invariant() : "Illegal state in Obelus(Expression, Expression)";
+		assert invariant() : "Illegal state in Times(Expression, Expression)";
 	}
 
 	/*
@@ -30,8 +32,8 @@ public class Obelus extends OperationImpl implements Operation {
 	 */
 	@Override
 	public Value evaluate(Value val1, Value val2) {
-		Value result = val1.divide(val2);
-		assert invariant() : "Illegal state in Obelus.evaluate(Expression, Expression)";
+		Value result = val1.multiply(val2);
+		assert invariant() : "Illegal state in Times.evaluate(Expression, Expression)";
 		return result;
 	}
 

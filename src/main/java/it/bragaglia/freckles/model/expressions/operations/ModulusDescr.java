@@ -1,12 +1,13 @@
 /**
  * 
  */
-package it.bragaglia.freckles.model.expressions;
+package it.bragaglia.freckles.model.expressions.operations;
 
 import it.bragaglia.freckles.model.ExpressionDescr;
+import it.bragaglia.freckles.model.expressions.OperationDescr;
 import it.bragaglia.freckles.session.Expression;
-import it.bragaglia.freckles.session.expressions.Obelus;
 import it.bragaglia.freckles.session.expressions.Operation;
+import it.bragaglia.freckles.session.expressions.operations.Modulus;
 
 import java.util.Hashtable;
 import java.util.Map;
@@ -15,7 +16,7 @@ import java.util.Map;
  * @author stefano
  * 
  */
-public class ObelusDescr extends OperationDescr implements ExpressionDescr {
+public class ModulusDescr extends OperationDescr implements ExpressionDescr {
 
 	/**
 	 * The cache for operations.
@@ -26,9 +27,9 @@ public class ObelusDescr extends OperationDescr implements ExpressionDescr {
 	 * @param exp1
 	 * @param exp2
 	 */
-	public ObelusDescr(ExpressionDescr exp1, ExpressionDescr exp2) {
+	public ModulusDescr(ExpressionDescr exp1, ExpressionDescr exp2) {
 		super(exp1, exp2);
-		assert invariant() : "Illegal state in ObelusDescr(ExpressionDescr, ExpressionDescr)";
+		assert invariant() : "Illegal state in ModulusDescr(ExpressionDescr, ExpressionDescr)";
 	}
 
 	/*
@@ -47,10 +48,10 @@ public class ObelusDescr extends OperationDescr implements ExpressionDescr {
 		Expression expr2 = getExp2().generate();
 		Operation operation = operands.get(expr2);
 		if (operation == null) {
-			operation = new Obelus(expr1, expr2);
+			operation = new Modulus(expr1, expr2);
 			operands.put(expr2, operation);
 		}
-		assert invariant() : "Illegal state in ObelusDescr.generate()";
+		assert invariant() : "Illegal state in ModulusDescr.generate()";
 		return operation;
 	}
 

@@ -1,17 +1,17 @@
 /**
  * 
  */
-package it.bragaglia.freckles.session.expressions;
+package it.bragaglia.freckles.session.conditions;
 
 import it.bragaglia.freckles.model.Value;
+import it.bragaglia.freckles.session.ConditionImpl;
 import it.bragaglia.freckles.session.Expression;
-import it.bragaglia.freckles.session.ExpressionImpl;
 
 /**
  * @author stefano
  * 
  */
-public abstract class OperationImpl extends ExpressionImpl implements Operation {
+public abstract class RelationImpl extends ConditionImpl implements Relation {
 
 	private Expression expr1;
 
@@ -26,23 +26,23 @@ public abstract class OperationImpl extends ExpressionImpl implements Operation 
 	private Value val2;
 
 	/**
-	 * Basic constructor. Requires the first and the second operand
+	 * Basic constructor. Requires the first and the second comparison
 	 * <code>expression</code>.
 	 * 
 	 * @param expr1
-	 *            the first operand expression
+	 *            the first comparison expression
 	 * @param expr2
-	 *            the second operand expression
+	 *            the second comparison expression
 	 */
-	public OperationImpl(Expression expr1, Expression expr2) {
+	public RelationImpl(Expression expr1, Expression expr2) {
 		super();
 		if (expr1 == null)
 			throw new IllegalArgumentException(
-					"Illegal 'expr1' argument in OperationImpl(Expression, Expression): "
+					"Illegal 'expr1' argument in RelationImpl(Expression, Expression): "
 							+ expr1);
 		if (expr2 == null)
 			throw new IllegalArgumentException(
-					"Illegal 'expr2' argument in OperationImpl(Expression, Expression): "
+					"Illegal 'expr2' argument in RelationImpl(Expression, Expression): "
 							+ expr2);
 		this.first1 = true;
 		this.first2 = true;
@@ -52,7 +52,29 @@ public abstract class OperationImpl extends ExpressionImpl implements Operation 
 		this.val2 = null;
 		expr1.follow(this);
 		expr2.follow(this);
-		assert invariant() : "Illegal state in OperationImpl(Expression, Expression)";
+		assert invariant() : "Illegal state in RelationImpl(Expression, Expression)";
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see it.bragaglia.freckles.session.conditions.Relation#getValue1()
+	 */
+	@Override
+	public Value getValue1() {
+		assert invariant() : "Illegal state in RelationImpl.getValue1()";
+		return val1;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see it.bragaglia.freckles.session.conditions.Relation#getValue2()
+	 */
+	@Override
+	public Value getValue2() {
+		assert invariant() : "Illegal state in RelationImpl.getValue2()";
+		return val2;
 	}
 
 	/**
@@ -69,7 +91,7 @@ public abstract class OperationImpl extends ExpressionImpl implements Operation 
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * it.bragaglia.freckles.session.expressions.ExpressionImpl#update(it.bragaglia
+	 * it.bragaglia.freckles.session.conditions.Relation#update(it.bragaglia
 	 * .freckles.session.Expression)
 	 */
 	@Override
@@ -87,8 +109,8 @@ public abstract class OperationImpl extends ExpressionImpl implements Operation 
 			this.val2 = current;
 			first2 = false;
 		}
-		// if (first1 && first2) // because I accept null value.
-		handle(evaluate(val1, val2));
+		// if (first1 && first2) // removed because I accept null values.
+		handle(evaluate());
 		assert invariant() : "Illegal state in OperationImpl.update(Expression)";
 	}
 

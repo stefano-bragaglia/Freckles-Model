@@ -1,12 +1,13 @@
 /**
  * 
  */
-package it.bragaglia.freckles.model.expressions;
+package it.bragaglia.freckles.model.expressions.operations;
 
 import it.bragaglia.freckles.model.ExpressionDescr;
+import it.bragaglia.freckles.model.expressions.OperationDescr;
 import it.bragaglia.freckles.session.Expression;
 import it.bragaglia.freckles.session.expressions.Operation;
-import it.bragaglia.freckles.session.expressions.Times;
+import it.bragaglia.freckles.session.expressions.operations.Times;
 
 import java.util.Hashtable;
 import java.util.Map;

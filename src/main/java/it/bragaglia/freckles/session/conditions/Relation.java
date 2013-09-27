@@ -3,24 +3,34 @@
  */
 package it.bragaglia.freckles.session.conditions;
 
+import it.bragaglia.freckles.model.Value;
+import it.bragaglia.freckles.session.Condition;
+import it.bragaglia.freckles.session.Expression;
+
 /**
  * @author stefano
- *
+ * 
  */
-public class Relation {
+public interface Relation extends Condition {
 
 	/**
-	 * Invariant check against the internal state.
-	 * 
-	 * @return <code>true</code> if this instance's state is consistent,
-	 *         <code>false</code> otherwise
+	 * @return
 	 */
-	private boolean invariant() {
-		return (false);
-	}
+	public boolean evaluate();
 
-	// Dovrebbe implementare Expression per avere l'update
-	// Pero' allo stesso tempo dovrebbe avere l'euivalente per le condition
-	// si riesce a sovrapporre le due cose?
-	
+	/**
+	 * @return
+	 */
+	public Value getValue1();
+
+	/**
+	 * @return
+	 */
+	public Value getValue2();
+
+	/**
+	 * @param expression
+	 */
+	public void update(Expression expression);
+
 }

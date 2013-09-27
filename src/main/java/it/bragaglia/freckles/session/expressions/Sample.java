@@ -4,6 +4,7 @@
 package it.bragaglia.freckles.session.expressions;
 
 import it.bragaglia.freckles.session.Expression;
+import it.bragaglia.freckles.session.ExpressionImpl;
 import it.bragaglia.freckles.session.Fluent;
 
 /**
