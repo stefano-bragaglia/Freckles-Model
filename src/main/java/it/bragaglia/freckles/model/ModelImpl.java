@@ -3,6 +3,9 @@
  */
 package it.bragaglia.freckles.model;
 
+import it.bragaglia.freckles.session.Session;
+import it.bragaglia.freckles.session.Type;
+
 import java.util.Hashtable;
 import java.util.Map;
 

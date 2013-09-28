@@ -1,4 +1,5 @@
-package it.bragaglia.freckles.model;
+package it.bragaglia.freckles.session;
+
 
 public interface Session {
 
@@ -7,5 +8,7 @@ public interface Session {
 	public void stop();
 
 	public void clear();
+	
+	public Event getEvent(String event);
 	
 }

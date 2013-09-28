@@ -1,7 +1,9 @@
 /**
  * 
  */
-package it.bragaglia.freckles.model;
+package it.bragaglia.freckles.session;
+
+import it.bragaglia.freckles.model.Context;
 
 import java.util.Map;
 

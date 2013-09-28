@@ -1,7 +1,7 @@
 /**
  * 
  */
-package it.bragaglia.freckles.model;
+package it.bragaglia.freckles.session;
 
 /**
  * @author stefano
