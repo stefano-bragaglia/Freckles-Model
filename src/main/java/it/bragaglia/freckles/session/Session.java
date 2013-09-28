@@ -9,6 +9,4 @@ public interface Session {
 
 	public void clear();
 	
-	public Event getEvent(String event);
-	
 }
