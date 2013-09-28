@@ -5,7 +5,8 @@ apply plugin: 'maven'
 sourceCompatibility = 1.7
 
 group = 'it.bragaglia.freckles'
-version = '0.2.2-SNAPSHOT'
+// version = '0.2.2-SNAPSHOT'
+version = '0.2.1'
 artifact = 'FrecklesModel'
 
 jar {
