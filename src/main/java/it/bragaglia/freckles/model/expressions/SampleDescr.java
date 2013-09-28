@@ -4,12 +4,6 @@
 package it.bragaglia.freckles.model.expressions;
 
 import it.bragaglia.freckles.model.ExpressionDescr;
-import it.bragaglia.freckles.session.Expression;
-import it.bragaglia.freckles.session.FluentImpl;
-import it.bragaglia.freckles.session.expressions.Sample;
-
-import java.util.Hashtable;
-import java.util.Map;
 
 /**
  * @author stefano
@@ -37,7 +31,7 @@ public class SampleDescr implements ExpressionDescr {
 	 * @return
 	 */
 	private boolean invariant() {
-		return (name != null && !name.isEmpty() && samples != null);
+		return (name != null && !name.isEmpty());
 	}
 
 	/**
@@ -61,27 +55,6 @@ public class SampleDescr implements ExpressionDescr {
 							+ parameters);
 		assert invariant() : "Illegal state in SampleDescr.validate()";
 		return true;
-	}
-
-	/**
-	 * The cache for samples. (to move in a factory?)
-	 */
-	private static Map<String, Sample> samples = new Hashtable<>();
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see it.bragaglia.freckles.model.ExpressionDescr#generate()
-	 */
-	@Override
-	public Expression generate() {
-		Sample sample = samples.get(name);
-		if (sample == null) {
-			sample = new Sample(new FluentImpl());
-			samples.put(name, sample);
-		}
-		assert invariant() : "Illegal state in SampleDescr.generate()";
-		return sample;
 	}
 
 }

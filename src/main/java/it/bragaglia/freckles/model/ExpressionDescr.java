@@ -3,8 +3,6 @@
  */
 package it.bragaglia.freckles.model;
 
-import it.bragaglia.freckles.session.Expression;
-
 /**
  * @author stefano
  * 
@@ -17,8 +15,4 @@ public interface ExpressionDescr {
 	 */
 	public boolean validate(String[] parameters);
 
-	/**
-	 * @return
-	 */
-	public Expression generate();
 }

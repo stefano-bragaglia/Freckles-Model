@@ -4,8 +4,6 @@
 package it.bragaglia.freckles.model.expressions;
 
 import it.bragaglia.freckles.model.ExpressionDescr;
-import it.bragaglia.freckles.session.Expression;
-import it.bragaglia.freckles.session.expressions.Number;
 
 import java.util.Hashtable;
 import java.util.Map;
@@ -88,22 +86,6 @@ public class NumberDescr implements ExpressionDescr {
 	public NumberDescr(short value) {
 		this.value = value;
 		assert invariant() : "Illegal state in Number(Value)";
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see it.bragaglia.freckles.model.ExpressionDescr#generate()
-	 */
-	@Override
-	public Expression generate() {
-		Number number = numbers.get(value);
-		if (number == null) {
-			number = new Number(value);
-			numbers.put(value, number);
-		}
-		assert invariant() : "Illegal state in NumberDescr.generate()";
-		return number;
 	}
 
 	/**
