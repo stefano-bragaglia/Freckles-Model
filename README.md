@@ -1,4 +1,6 @@
 Freckles
-=======
+========
 
-Model/Session framework for Event Calculus
+Model framework for Event Calculus
+
+Requires 'gradle'
