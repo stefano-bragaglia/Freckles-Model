@@ -31,4 +31,11 @@ public class ObelusDescr extends OperationDescr implements ExpressionDescr {
 		return (true);
 	}
 
+	@Override
+	public String toString() {
+		String result = getExp1() + " / " + getExp2();
+		assert invariant() : "Illegal state in ObelusDescr(ExpressionDescr, ExpressionDescr)";
+		return result;
+	}
+
 }

@@ -30,5 +30,13 @@ public class ModulusDescr extends OperationDescr implements ExpressionDescr {
 	private boolean invariant() {
 		return (true);
 	}
+	
+	@Override
+	public String toString() {
+		String result = getExp1() + " % " + getExp2();
+		assert invariant() : "Illegal state in ModulusDescr(ExpressionDescr, ExpressionDescr)";
+		return result;
+	}
+
 
 }

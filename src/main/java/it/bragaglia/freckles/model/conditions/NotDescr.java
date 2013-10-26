@@ -59,4 +59,11 @@ public class NotDescr implements ConditionDescr {
 		return result;
 	}
 
+	@Override
+	public String toString() {
+		String result = "!" + condition;
+		assert invariant() : "Illegal state in NotDescr.toString()";
+		return result;
+	}
+
 }

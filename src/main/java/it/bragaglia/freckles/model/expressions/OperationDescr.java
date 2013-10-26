@@ -78,4 +78,7 @@ public abstract class OperationDescr implements ExpressionDescr {
 		return result;
 	}
 
+	@Override
+	public abstract String toString();
+
 }

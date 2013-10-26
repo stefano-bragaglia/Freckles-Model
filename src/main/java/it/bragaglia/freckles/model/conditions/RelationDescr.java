@@ -79,4 +79,7 @@ public abstract class RelationDescr implements ConditionDescr {
 		return result;
 	}
 
+	@Override
+	public abstract String toString();
+
 }

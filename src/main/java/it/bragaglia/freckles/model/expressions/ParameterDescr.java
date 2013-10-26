@@ -60,4 +60,10 @@ public class ParameterDescr implements ExpressionDescr {
 		return result;
 	}
 
+	@Override
+	public String toString() {
+		assert invariant() : "Illegal state in Paremeter.toString()";
+		return name;
+	}
+
 }

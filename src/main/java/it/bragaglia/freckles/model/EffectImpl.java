@@ -29,18 +29,29 @@ public class EffectImpl implements Effect {
 	 *            the context
 	 */
 	public EffectImpl(String fluent, Context context) {
-
+		if (fluent == null || (fluent = fluent.trim()).isEmpty())
+			throw new IllegalArgumentException(
+					"Illegal 'fluent' argument in EffectImpl(String, Context): "
+							+ fluent);
+		if (context == null)
+			throw new IllegalArgumentException(
+					"Illegal 'context' argument in EffectImpl(String, Context): "
+							+ context);
+		this.context = context;
+		this.fluent = fluent;
+		assert invariant() : "Illegal state in EffectImpl(String, Context)";
 	}
 
 	/**
 	 * Invariant check.
 	 * 
-	 * @return <code>true</code> if the state is correct, <code>false</code> otherwise
+	 * @return <code>true</code> if the state is correct, <code>false</code>
+	 *         otherwise
 	 */
 	private boolean invariant() {
 		return (context != null && fluent != null && !fluent.isEmpty());
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * 

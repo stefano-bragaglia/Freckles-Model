@@ -20,5 +20,12 @@ public class LessDescr extends RelationDescr implements ConditionDescr {
 	public LessDescr(ExpressionDescr exp1, ExpressionDescr exp2) {
 		super(exp1, exp2);
 	}
+	
+	@Override
+	public String toString() {
+		String result = getExp1() + " < " + getExp2();
+		return result;
+	}
+
 
 }

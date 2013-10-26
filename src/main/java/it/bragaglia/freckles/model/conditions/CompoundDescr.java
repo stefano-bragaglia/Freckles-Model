@@ -6,6 +6,7 @@ package it.bragaglia.freckles.model.conditions;
 import it.bragaglia.freckles.model.ConditionDescr;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -33,6 +34,15 @@ public abstract class CompoundDescr implements ConditionDescr {
 	 */
 	private boolean invariant() {
 		return (conditions != null);
+	}
+
+	/**
+	 * @return
+	 */
+	public Iterator<ConditionDescr> iterator() {
+		Iterator<ConditionDescr> result = conditions.iterator();
+		assert invariant() : "Illegal state in CompoundDescr.iterator()";
+		return result;
 	}
 
 	/**
@@ -93,5 +103,8 @@ public abstract class CompoundDescr implements ConditionDescr {
 		assert invariant() : "Illegal state in CompoundDescr.validate(String[])";
 		return false;
 	}
+
+	@Override
+	public abstract String toString();
 
 }

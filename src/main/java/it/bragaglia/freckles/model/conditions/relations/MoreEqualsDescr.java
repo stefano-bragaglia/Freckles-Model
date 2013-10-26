@@ -21,4 +21,10 @@ public class MoreEqualsDescr extends RelationDescr implements ConditionDescr {
 		super(exp1, exp2);
 	}
 
+	@Override
+	public String toString() {
+		String result = getExp1() + " >= " + getExp2();
+		return result;
+	}
+
 }

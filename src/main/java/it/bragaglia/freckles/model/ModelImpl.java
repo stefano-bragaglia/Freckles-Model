@@ -6,6 +6,7 @@ package it.bragaglia.freckles.model;
 import it.bragaglia.freckles.session.Session;
 import it.bragaglia.freckles.session.Type;
 
+import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.Map;
 
@@ -118,6 +119,37 @@ public class ModelImpl implements Model {
 				cosos.remove(fluent);
 		}
 		assert invariant() : "Illegal state in ModelImpl.remove(String, String...)";
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder result = new StringBuilder();
+		String[] events = statements.keySet().toArray(new String[0]);
+		Arrays.sort(events);
+		for (String event : events) {
+			Map<String, Context> effects = statements.get(event);
+			String[] fluents = effects.keySet().toArray(new String[0]);
+			Arrays.sort(fluents);
+			for (String fluent : fluents) {
+				result.append("on " + event);
+				Context context = effects.get(fluent);
+				String[] params = context.getParameters();
+				if (params.length > 0) {
+					result.append("(" + params[0]);
+					for (int i = 1; i < params.length; i++)
+						result.append(", " + params[i]);
+					result.append(")");
+				}
+				result.append(" set " + fluent);
+				result.append(" to " + context.getExpression());
+				String condition = context.getCondition().toString();
+				if (condition != null)
+					result.append(" if " + condition);
+				result.append(";\n");
+			}
+		}
+		assert invariant() : "Illegal state in ModelImpl.toString()";
+		return result.toString();
 	}
 
 }

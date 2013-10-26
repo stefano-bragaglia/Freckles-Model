@@ -57,4 +57,10 @@ public class SampleDescr implements ExpressionDescr {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		assert invariant() : "Illegal state in SampleDescr.toString()";
+		return name;
+	}
+
 }

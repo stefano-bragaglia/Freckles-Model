@@ -107,10 +107,17 @@ public class NumberDescr implements ExpressionDescr {
 	public boolean validate(String[] parameters) {
 		if (parameters == null)
 			throw new IllegalArgumentException(
-					"Illegal 'paramaters' argument in Number,validate(String[]): "
+					"Illegal 'paramaters' argument in Number.validate(String[]): "
 							+ parameters);
-		assert invariant() : "Illegal state in Number,validate(String[])";
+		assert invariant() : "Illegal state in Number.validate(String[])";
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		String result = Double.toString(value);
+		assert invariant() : "Illegal state in Number.toString()";
+		return result;
+	}
+	
 }
